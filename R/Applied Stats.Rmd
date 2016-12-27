@@ -5,6 +5,7 @@ author: "Witek ten Hove"
 date: "12/26/2016"
 output:
   ioslides_presentation:
+    keep_md: yes
     logo: logo.png
 runtime: shiny
 ---
@@ -98,7 +99,7 @@ pandoc.table(t, emphasize.strong.rows = 4)
 
 ## Simulation
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/280px-PNG_transparency_demonstration_1.png)
+<img src="https://s24.postimg.org/9b6faewh1/dice.png" height="400" width="800">
 
 ## Simple Monte Carlo Model
 
@@ -134,7 +135,7 @@ drawsRes <- drawsA - drawsB
 bins <- (max(drawsRes)- min(drawsRes)) / 10
   
 h <- hist(drawsRes, probability = FALSE, breaks = bins, col = "Red",
-       xlab = "Result", main = "Model: Result = A - B")
+       xlab = "Result", main = paste("Model: Result = A - B\nMean =",mean(drawsRes)))
   
 xfit<-seq(min(drawsRes),max(drawsRes),length=50) 
 yfit<-dnorm(xfit,mean=mean(drawsRes),sd=sd(drawsRes)) 
@@ -143,6 +144,6 @@ lines(xfit, yfit, col="blue", lwd=2)
   
 },
   
-  width = 800)
+  width = 800, height = 400)
 
 ```
